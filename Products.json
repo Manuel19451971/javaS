@@ -1,0 +1,39 @@
+{
+  "name" : "A Godzilla garden gnome",
+  "Price" : 24.99,
+  "Description" : "Let those pesky, roving neighborhood gnomes know where they're not welcome. ",
+  "features" :"A series of big-budget, narratively lackluster sequels not included.",
+  "image": "images\godzilla.jpg"
+},
+
+{
+  "name" : "baby mop",
+  "Price" : 29.99,
+  "Description" : "It's never too early to teach your children about chores, as evidenced by this suit that lets your baby mop the house for you. ",
+  "features" :"Cleaning Mop + Rompers = Babymop! Thanks to the Babymop your floor will stay clean all by itself",
+  "image": "images\baby-mop.jpg"
+},
+
+{
+  "name" : "horror movie sound maker",
+  "Price" : 229.99,
+  "Description" : "Surprise guests by making them think It is hiding just around the corner.",
+  "features" :"metal that makes sound with its metal components",
+  "image": "images\horror.jpg"
+},
+
+{
+  "name" : "pound of replica human fat",
+  "Price" : 23.99,
+  "Description" : "If you've ever needed a means of convincing yourself not to go back for seconds, this rubbery pound of replica fat is sure to do the trick.",
+  "features" :"Plastic that it is similar to human fat",
+  "image": "images\human-fat.jpg"
+},
+
+{
+  "name" : "A pigeon mask",
+  "Price" : 27.49,
+  "Description" : "You can finally roam the neighborhood in peace disguised in this lifelike pigeon mask. Hey, you might even get thrown a couple bread crumbs from sympathetic passersby! ",
+  "features" :"Plastic mask",
+  "image": "images\pigeon.jpg"
+},
