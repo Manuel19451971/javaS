@@ -1,6 +1,6 @@
 {
-
-  "things":[
+  "things": "items"
+  "Product":[
    {
      "name" : "A Godzilla garden gnome",
      "Price" : 24.99,
