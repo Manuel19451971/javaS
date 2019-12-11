@@ -21,7 +21,7 @@ request.send();
 
  request.onload = function(){
  let op = request.response;
- console.log(op);
+ console.log("hello");
  populateHeader(op);
  topThings(ops);
 }
