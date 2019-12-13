@@ -13,7 +13,7 @@ let request = new XMLHttpRequest();
 
 
 //Make request
-request.open('GET', requestURL)
+request.open("GET", requestURL)
 request.responseType = 'json';
 request.send();
 
@@ -21,9 +21,9 @@ request.send();
 
  request.onload = function(){
  let op = request.response;
- console.log("hello");
+ console.log(op);
  populateHeader(op);
- topThings(ops);
+ topThings(op);
 }
 
 function populateHeader(jsonObj) {
@@ -48,14 +48,14 @@ let topThings = jsonObj["Product"];
     let p3 = document.createElement("p");
     let list = document.createElement("ul");
 
-    img.setAttribute("src", "C:\Users\manue\OneDrive\Desktop\javascript\Project3\images" + topThings[i].image);
+    img.setAttribute("src",topThings[i].image);
     img.setAttribute("alt", topThings[i].image );
 
       h2.textContent = topThings[i].name;
       p1.textContent = "Price: " + topThings[i].Price;
       p2.textContent = "Description: " + topThings[i].Description;
 
-      let max = topThingsthings[i].features;
+      let max = topThings[i].features;
       for(let j = 0; j < max.length; j++ ) {
         let listItem = document.createElement("li");
         listItem.textContent = max[j];
@@ -63,8 +63,9 @@ let topThings = jsonObj["Product"];
       }
 
 
-      article.appendChild(img);
+
       article.appendChild(h2);
+      article.appendChild(img);
       article.appendChild(p1);
       article.appendChild(p2);
       article.appendChild(list);

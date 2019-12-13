@@ -23,7 +23,7 @@
         margin-top : 55px;
         margin-left: auto;
         margin-right:auto;
-        margin-bottom: 55px;
+        margin-bottom: 105px;
 
 
       }
@@ -45,62 +45,43 @@
     </div>
     <div id="map"></div>
     <script>
-      var map;
-      let requestURL = "https://manuel19451971.github.io/javaS/Products.json";
+    let requestURL = "https://manuel19451971.github.io/javaS/Products.json";
+    let request = new XMLHttpRequest();
+
+    request.open("GET", requestURL)
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function(){
+    let op = request.response;
+    setMark(op);
+   }
 
 
 
-      let request = new XMLHttpRequest();
 
 
-      request.open("GET", requestURL)
-      request.responseType = 'json';
-      request.send();
+    function initMap(jsonObj) {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 2,
+    center: {lat: -33.9, lng: 151.2}
+  });
 
-      request.onload = function(){
-      let op = request.response;
-      console.log(op);
-      setMarks(op);
-     }
+  setMark(map,jsonObj);
+  }
 
+  function setMark(map,jsonObj) {
+  let topproducts = jsonObj["Product"];
+  for (var i = 0; i < topproducts.length; i++) {
+    var xx = topproducts[i];
 
-
-      function initMap(jsonObj) {
-
-
-
-        var myLatLng = {lat: -25.363, lng: 131.044};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-        setMarks(map,jsonObj);
-        }
-
-        function setMarks(map,jsonObj) {
-        let products = jsonObj['Product'];
-
-        for (var i = 0; i < products.length; i++) {
-
-
-          var beach = products[i];
-             //console.log(products[i].lat);
-             var marker = new google.maps.Marker({
-               position: {lat: products[i].lat, lng: products[i].lng},
-               map: map,
-               title: products[i].name
-             });
-
-        }
-
-
+    var marker = new google.maps.Marker({
+      position: {lat: topproducts[i].lat, lng:topproducts[i].lng},
+      title: topproducts[i].name
+    });
+  }
 }
-
-
-
-
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNz63zx3N9F1ISZBwrV881s8aK5G9e1Ck&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNz63zx3N9F1ISZBwrV881s8aK5G9e1Ck&callback=initMap" async defer></script>
   </body>
 </html>
