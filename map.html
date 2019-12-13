@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+
+    .topnav a {
+      float: left;
+      color: #BADA55;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+
+      #map {
+        height: 50%;
+        width:50%;
+
+        margin-top : 55px;
+        margin-left: auto;
+        margin-right:auto;
+        margin-bottom: 55px;
+
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+    <a class="active" href="https://bestlifeonline.com/50-craziest-amazon-items/">Amazon List</a>
+    <a href="Table.html">List</a>
+    </div>
+    <div id="map"></div>
+    <script>
+      var map;
+      let requestURL = "https://manuel19451971.github.io/javaS/Products.json";
+
+
+
+      let request = new XMLHttpRequest();
+
+
+      request.open("GET", requestURL)
+      request.responseType = 'json';
+      request.send();
+
+      request.onload = function(){
+      let op = request.response;
+      console.log(op);
+      setMarks(op);
+     }
+
+
+
+      function initMap(jsonObj) {
+
+
+
+        var myLatLng = {lat: -25.363, lng: 131.044};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+        setMarks(map,jsonObj);
+        }
+
+        function setMarks(map,jsonObj) {
+        let products = jsonObj['Product'];
+
+        for (var i = 0; i < products.length; i++) {
+
+
+          var beach = products[i];
+             //console.log(products[i].lat);
+             var marker = new google.maps.Marker({
+               position: {lat: products[i].lat, lng: products[i].lng},
+               map: map,
+               title: products[i].name
+             });
+
+        }
+
+
+}
+
+
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNz63zx3N9F1ISZBwrV881s8aK5G9e1Ck&callback=initMap"
+    async defer></script>
+  </body>
+</html>
